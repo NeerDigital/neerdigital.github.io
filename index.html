@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neer Digital Service | Websites, Apps, Google Ads & YouTube Ads</title>
+  <meta name="description" content="Neer Digital Service builds websites and mobile apps and runs Google Ads and YouTube Ads to help local shops and businesses get more customers." />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta property="og:title" content="Neer Digital Service" />
+  <meta property="og:description" content="Grow your business online with websites, mobile apps, Google Ads and YouTube Ads." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950: '#06142e', 900: '#0a1f44', 800: '#0f2d5f', 700: '#163d7a' },
+            brand: { DEFAULT: '#2563eb', light: '#3b82f6' },
+            gold: { DEFAULT: '#f5b301', dark: '#d99a00' },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .hero-bg {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(59,130,246,.35), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(245,179,1,.18), transparent 40%),
+        linear-gradient(135deg, #06142e 0%, #0a1f44 55%, #0f2d5f 100%);
+    }
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(10,31,68,.25); border-color: #2563eb; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .floaty { animation: floaty 5s ease-in-out infinite; }
+    @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.55); } 100% { box-shadow: 0 0 0 18px rgba(37,211,102,0); } }
+    .pulse-ring { animation: pulseRing 2s infinite; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .floaty, .pulse-ring { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-700 bg-white antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header id="top" class="fixed inset-x-0 top-0 z-50 bg-navy-900/95 backdrop-blur border-b border-white/10">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3" aria-label="Neer Digital Service home">
+        <!-- Logo placeholder: replace this SVG with your own logo image if desired -->
+        <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="12" fill="#2563eb"/>
+          <path d="M14 34V14l20 20V14" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="36" cy="12" r="3.5" fill="#f5b301"/>
+        </svg>
+        <span class="leading-tight">
+          <span class="block font-display text-lg font-bold text-white">Neer</span>
+          <span class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">Digital Service</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+        <a href="#home" class="nav-link text-sm font-medium text-slate-200 hover:text-gold transition">Home</a>
+        <a href="#services" class="nav-link text-sm font-medium text-slate-200 hover:text-gold transition">Services</a>
+        <a href="#about" class="nav-link text-sm font-medium text-slate-200 hover:text-gold transition">About Us</a>
+        <a href="#developer" class="nav-link text-sm font-medium text-slate-200 hover:text-gold transition">Developer</a>
+        <a href="#contact" class="nav-link text-sm font-medium text-slate-200 hover:text-gold transition">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-navy-950 shadow-lg shadow-gold/20 transition hover:bg-gold-dark">
+          Get a Free Consultation
+        </a>
+        <button id="menuBtn" class="lg:hidden rounded-lg p-2 text-white hover:bg-white/10" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="iconOpen" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="iconClose" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-navy-900">
+      <nav class="flex flex-col px-4 py-4 gap-1" aria-label="Mobile navigation">
+        <a href="#home" class="mobile-link rounded-lg px-3 py-3 text-slate-100 hover:bg-white/10">Home</a>
+        <a href="#services" class="mobile-link rounded-lg px-3 py-3 text-slate-100 hover:bg-white/10">Services</a>
+        <a href="#about" class="mobile-link rounded-lg px-3 py-3 text-slate-100 hover:bg-white/10">About Us</a>
+        <a href="#developer" class="mobile-link rounded-lg px-3 py-3 text-slate-100 hover:bg-white/10">Developer</a>
+        <a href="#contact" class="mobile-link rounded-lg px-3 py-3 text-slate-100 hover:bg-white/10">Contact Us</a>
+        <a href="#contact" class="mobile-link mt-2 rounded-full bg-gold px-5 py-3 text-center font-bold text-navy-950">Book Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero-bg relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+      <div class="grid-overlay absolute inset-0"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+
+        <div class="text-center lg:text-left">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold">
+            <span class="h-2 w-2 rounded-full bg-gold"></span> Your Growth Partner
+          </span>
+          <h1 class="mt-6 font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-[3.4rem]">
+            Grow Your Business Online with <span class="text-gold">Neer Digital Service</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
+            Professional Website Development, Mobile Apps, Google Ads and YouTube Ads tailored to bring more customers to your business.
+          </p>
+
+          <div class="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <a href="https://wa.me/917563947172?text=Hi%20Neer%20Digital%20Service%2C%20I%20want%20to%20know%20more%20about%20your%20digital%20services."
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 font-bold text-white shadow-lg shadow-green-500/25 transition hover:bg-[#1ebe5a] sm:w-auto">
+              <svg class="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.3.7 4.5 1.9 6.4L4 29l7.9-1.9c1.8 1 3.9 1.5 6 1.5 6.6 0 12-5.3 12-11.9S22.600 3 16 3zm0 21.800c-1.900 0-3.800-.5-5.400-1.500l-.4-.2-4.600 1.100 1.200-4.500-.3-.5C5.400 17.600 4.900 16.300 4.900 14.900 4.900 9.100 9.900 4.900 16 4.900s11.100 4.200 11.100 10S22.100 24.800 16 24.800zm5.800-7.500c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100c-1.900-.9-3.100-1.700-4.400-3.800-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1.100 1.100-1.100 2.600s1.100 3 1.300 3.200c.2.200 2.200 3.400 5.400 4.700 2 .8 2.800.9 3.800.7.600-.1 1.900-.8 2.200-1.500.3-.7.3-1.400.2-1.500-.1-.2-.3-.3-.7-.5z"/></svg>
+              Contact on WhatsApp
+            </a>
+            <a href="tel:+917563947172"
+               class="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/30 px-7 py-4 font-bold text-white transition hover:border-gold hover:text-gold sm:w-auto">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.3a1 1 0 01.95.68l1.1 3.3a1 1 0 01-.5 1.2l-1.6.9a11 11 0 005.2 5.2l.9-1.6a1 1 0 011.2-.5l3.3 1.1a1 1 0 01.7.95V19a2 2 0 01-2 2h-1C9.7 21 3 14.300 3 6V5z"/></svg>
+              Call Us Now
+            </a>
+          </div>
+
+          <ul class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-slate-300 lg:justify-start">
+            <li class="flex items-center gap-2"><span class="text-gold">✔</span> Transparent Pricing</li>
+            <li class="flex items-center gap-2"><span class="text-gold">✔</span> Result-Focused Strategy</li>
+            <li class="flex items-center gap-2"><span class="text-gold">✔</span> Quick WhatsApp Support</li>
+          </ul>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="relative mx-auto hidden w-full max-w-md lg:block">
+          <div class="floaty rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+            <div class="flex items-center justify-between">
+              <p class="font-display font-semibold text-white">Growth Overview</p>
+              <span class="rounded-full bg-green-500/20 px-3 py-1 text-xs font-semibold text-green-300">▲ Trending</span>
+            </div>
+            <svg class="mt-6 w-full" viewBox="0 0 320 140" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#3b82f6" stop-opacity=".5"/>
+                  <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 120 C40 110 60 90 95 85 S150 90 180 60 250 40 320 10 V140 H0Z" fill="url(#g1)"/>
+              <path d="M0 120 C40 110 60 90 95 85 S150 90 180 60 250 40 320 10" stroke="#f5b301" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="320" cy="10" r="5" fill="#f5b301"/>
+            </svg>
+            <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-xl bg-white/5 p-3"><p class="text-xl">▶️</p><p class="mt-1 text-xs text-slate-300">YouTube Ads</p></div>
+              <div class="rounded-xl bg-white/5 p-3"><p class="text-xl">🎯</p><p class="mt-1 text-xs text-slate-300">Google Ads</p></div>
+              <div class="rounded-xl bg-white/5 p-3"><p class="text-xl">💻</p><p class="mt-1 text-xs text-slate-300">Web & Apps</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section id="services" class="bg-slate-50 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand">What We Do</p>
+          <h2 class="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">Services Built to Scale Your Brand</h2>
+          <p class="mt-4 text-slate-600">From a professional website to ads that bring customers to your door, we handle the digital side so you can focus on running your business.</p>
+        </div>
+
+        <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-amber-50 text-2xl">💻</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">Website Development</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Fast, modern, mobile-friendly and SEO-friendly websites for local shops, businesses, clinics, coaching centers and creators.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-50 text-2xl">📱</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">Mobile App Development</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Custom Android and iOS apps, including school management apps, booking apps and business apps built around your needs.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-2xl">🎯</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">Google Ads (PPC)</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Search and display campaigns that put your business in front of people actively looking for your products and services.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-red-50 text-2xl">▶️</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">YouTube Ads</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Video ad campaigns that reach the right audience and bring in targeted leads, calls and customers.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-green-50 text-2xl">🏪</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">Local Business Advertising</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Advertising for local shops and service businesses to attract nearby customers online and increase walk-ins and enquiries.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+          <article class="reveal card-hover flex flex-col rounded-2xl border border-slate-200 bg-white p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-50 text-2xl">📣</div>
+            <h3 class="mt-5 font-display text-lg font-bold text-navy-900">Other Digital Services</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">Social media marketing, branding and other digital marketing solutions to build a strong online presence.</p>
+            <a href="#contact" class="mt-5 text-sm font-semibold text-brand hover:underline">Get a quote &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT US ========== -->
+    <section id="about" class="py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div class="reveal">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand">About Us</p>
+          <h2 class="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">A Digital Partner You Can Trust</h2>
+          <p class="mt-5 leading-relaxed text-slate-600">
+            Neer Digital Service helps local shops, schools and businesses grow online through well-built websites, mobile apps and smart advertising. We keep things simple: clear communication, honest advice and work that is focused on real results.
+          </p>
+          <p class="mt-4 leading-relaxed text-slate-600">
+            Whether you want a website for your shop, a school management app, or Google and YouTube ads to get more customers, we create a plan that fits your goals and budget.
+          </p>
+          <a href="#contact" class="mt-8 inline-flex rounded-full bg-navy-900 px-7 py-3.5 font-bold text-white transition hover:bg-navy-700">Start Your Project</a>
+        </div>
+
+        <div class="reveal grid gap-5 sm:grid-cols-2">
+          <div class="card-hover rounded-2xl border border-slate-200 bg-white p-6">
+            <p class="text-3xl">🔍</p>
+            <h3 class="mt-3 font-display font-bold text-navy-900">Strategy First</h3>
+            <p class="mt-2 text-sm text-slate-600">We understand your goals and audience before spending a single rupee.</p>
+          </div>
+          <div class="card-hover rounded-2xl border border-slate-200 bg-white p-6">
+            <p class="text-3xl">🤝</p>
+            <h3 class="mt-3 font-display font-bold text-navy-900">Transparent Work</h3>
+            <p class="mt-2 text-sm text-slate-600">Clear pricing, regular updates and no hidden surprises.</p>
+          </div>
+          <div class="card-hover rounded-2xl border border-slate-200 bg-white p-6">
+            <p class="text-3xl">⚡</p>
+            <h3 class="mt-3 font-display font-bold text-navy-900">Fast Turnaround</h3>
+            <p class="mt-2 text-sm text-slate-600">Quick responses on WhatsApp and timely project delivery.</p>
+          </div>
+          <div class="card-hover rounded-2xl border border-slate-200 bg-white p-6">
+            <p class="text-3xl">📈</p>
+            <h3 class="mt-3 font-display font-bold text-navy-900">Growth Focused</h3>
+            <p class="mt-2 text-sm text-slate-600">Every decision is aimed at leads, sales and long-term growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEVELOPER ========== -->
+    <section id="developer" class="hero-bg relative overflow-hidden py-20 sm:py-24">
+      <div class="grid-overlay absolute inset-0"></div>
+      <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur sm:p-12">
+          <div class="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
+            <!-- Avatar placeholder: replace with <img src="your-photo.jpg" ...> -->
+            <div class="flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-4 border-gold bg-navy-800 font-display text-4xl font-bold text-gold">
+              &lt;/&gt;
+            </div>
+            <div>
+              <p class="text-sm font-bold uppercase tracking-widest text-gold">About the Developer</p>
+              <h2 class="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">Designed and Developed by Neeraj Kumar</h2>
+              <p class="mt-4 leading-relaxed text-slate-300">
+                Passionate about crafting high-performance digital experiences and scalable web solutions. With a focus on clean code, modern design and fast, mobile-friendly websites, I turn ideas into products that look great and work flawlessly.
+              </p>
+              <p class="mt-3 leading-relaxed text-slate-300">
+                Committed to client success: every project is built with attention to detail, SEO best practices and long-term growth in mind.
+              </p>
+              <div class="mt-6 flex flex-wrap justify-center gap-2 md:justify-start">
+                <span class="rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">HTML / CSS / JavaScript</span>
+                <span class="rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">React & Tailwind</span>
+                <span class="rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">App Development</span>
+                <span class="rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">UI / UX Design</span>
+                <span class="rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white">SEO & Performance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="bg-slate-50 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-sm font-bold uppercase tracking-widest text-brand">Contact Us</p>
+          <h2 class="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">Get a Free Consultation</h2>
+          <p class="mt-4 text-slate-600">Tell us about your project. We will get back to you quickly.</p>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-5">
+          <!-- Contact cards -->
+          <div class="reveal space-y-5 lg:col-span-2">
+            <a href="tel:+917563947172" class="card-hover flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-xl">📞</span>
+              <span><span class="block text-xs font-semibold uppercase text-slate-500">Call Us</span><span class="font-bold text-navy-900">+91 75639 47172</span></span>
+            </a>
+            <a href="https://wa.me/917563947172?text=Hi%20Neer%20Digital%20Service%2C%20I%20want%20to%20know%20more%20about%20your%20digital%20services." target="_blank" rel="noopener noreferrer" class="card-hover flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-xl">💬</span>
+              <span><span class="block text-xs font-semibold uppercase text-slate-500">WhatsApp</span><span class="font-bold text-navy-900">Chat with us instantly</span></span>
+            </a>
+            <a href="mailto:Kumarniraj0327@gmail.com?subject=Enquiry%20-%20Neer%20Digital%20Service" class="card-hover flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-xl">✉️</span>
+              <span class="min-w-0"><span class="block text-xs font-semibold uppercase text-slate-500">Email</span><span class="block truncate font-bold text-navy-900">Kumarniraj0327@gmail.com</span></span>
+            </a>
+          </div>
+
+          <!-- Form (sends details to WhatsApp, no backend required) -->
+          <form id="contactForm" class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-3" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label for="name" class="mb-1.5 block text-sm font-semibold text-navy-900">Your Name</label>
+                <input id="name" type="text" required autocomplete="name" placeholder="Full name" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
+              </div>
+              <div>
+                <label for="phone" class="mb-1.5 block text-sm font-semibold text-navy-900">Phone Number</label>
+                <input id="phone" type="tel" autocomplete="tel" placeholder="Your phone number" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20" />
+              </div>
+            </div>
+            <div class="mt-5">
+              <label for="service" class="mb-1.5 block text-sm font-semibold text-navy-900">Service Needed</label>
+              <select id="service" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                <option>Website Development</option>
+                <option>Mobile App Development</option>
+                <option>Google Ads (PPC)</option>
+                <option>YouTube Ads</option>
+                <option>Local Business Advertising</option>
+                <option>Other Digital Services</option>
+              </select>
+            </div>
+            <div class="mt-5">
+              <label for="message" class="mb-1.5 block text-sm font-semibold text-navy-900">Message</label>
+              <textarea id="message" rows="4" placeholder="Tell us briefly about your project..." class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"></textarea>
+            </div>
+            <p id="formError" class="mt-3 hidden text-sm font-medium text-red-600">Please enter your name.</p>
+            <button type="submit" class="mt-6 w-full rounded-full bg-gold px-6 py-4 font-bold text-navy-950 shadow-lg shadow-gold/20 transition hover:bg-gold-dark">
+              Send via WhatsApp
+            </button>
+            <p class="mt-3 text-center text-xs text-slate-500">This opens WhatsApp with your details pre-filled.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-navy-950 text-slate-300">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div>
+        <a href="#home" class="flex items-center gap-3">
+          <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#2563eb"/>
+            <path d="M14 34V14l20 20V14" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="36" cy="12" r="3.5" fill="#f5b301"/>
+          </svg>
+          <span class="font-display text-lg font-bold text-white">Neer Digital Service</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-slate-400">Websites, mobile apps, Google Ads and YouTube Ads to help your business get more customers online.</p>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white">Quick Links</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a class="hover:text-gold" href="#home">Home</a></li>
+          <li><a class="hover:text-gold" href="#services">Services</a></li>
+          <li><a class="hover:text-gold" href="#about">About Us</a></li>
+          <li><a class="hover:text-gold" href="#developer">Developer</a></li>
+          <li><a class="hover:text-gold" href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white">Contact</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a class="hover:text-gold" href="tel:+917563947172">📞 +91 75639 47172</a></li>
+          <li><a class="break-all hover:text-gold" href="mailto:Kumarniraj0327@gmail.com">✉️ Kumarniraj0327@gmail.com</a></li>
+          <li><a class="hover:text-gold" href="https://wa.me/917563947172" target="_blank" rel="noopener noreferrer">💬 WhatsApp Chat</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white">Follow Us</h3>
+        <!-- Replace each "#" with your real profile URL -->
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a class="hover:text-gold" href="#" target="_blank" rel="noopener noreferrer">YouTube: @NeerDigitalService</a></li>
+          <li><a class="hover:text-gold" href="#" target="_blank" rel="noopener noreferrer">Instagram: @neerdigitalservice</a></li>
+          <li><a class="hover:text-gold" href="#" target="_blank" rel="noopener noreferrer">Facebook: Neer Digital Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 py-6 text-center text-sm text-slate-400">
+      <p>Copyright © 2026 Neer Digital Service. All rights reserved.</p>
+      <p class="mt-1 text-xs text-slate-500">Designed and Developed by Neeraj Kumar</p>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING CONTACT BUTTONS ========== -->
+  <div class="fixed bottom-5 right-4 z-50 flex flex-col gap-3 sm:right-6">
+    <a href="tel:+917563947172" aria-label="Call Neer Digital Service"
+       class="flex h-14 w-14 items-center justify-center rounded-full bg-brand text-white shadow-xl transition hover:scale-110 hover:bg-brand-light">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.3a1 1 0 01.95.68l1.1 3.3a1 1 0 01-.5 1.2l-1.6.9a11 11 0 005.2 5.2l.9-1.6a1 1 0 011.2-.5l3.3 1.1a1 1 0 01.7.95V19a2 2 0 01-2 2h-1C9.7 21 3 14.300 3 6V5z"/></svg>
+    </a>
+    <a href="https://wa.me/917563947172?text=Hi%20Neer%20Digital%20Service%2C%20I%20want%20to%20know%20more%20about%20your%20digital%20services."
+       target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+       class="pulse-ring flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition hover:scale-110">
+      <svg class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.3.7 4.5 1.9 6.4L4 29l7.9-1.9c1.8 1 3.9 1.5 6 1.5 6.6 0 12-5.3 12-11.9S22.600 3 16 3zm0 21.800c-1.900 0-3.800-.5-5.400-1.500l-.4-.2-4.600 1.100 1.200-4.500-.3-.5C5.400 17.600 4.900 16.300 4.900 14.900 4.900 9.100 9.900 4.900 16 4.900s11.100 4.200 11.100 10S22.100 24.800 16 24.800zm5.800-7.500c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100c-1.900-.9-3.100-1.700-4.400-3.800-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1.100 1.100-1.100 2.600s1.100 3 1.300 3.200c.2.200 2.200 3.400 5.400 4.700 2 .8 2.800.9 3.800.7.600-.1 1.900-.8 2.200-1.500.3-.7.3-1.400.2-1.500-.1-.2-.3-.3-.7-.5z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+    }
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => setMenu(false)));
+
+    // Offset anchor scrolling for the fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Contact form -> opens WhatsApp with pre-filled message
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const err = document.getElementById('formError');
+      if (!name) { err.classList.remove('hidden'); return; }
+      err.classList.add('hidden');
+
+      const text =
+        `Hi Neer Digital Service, I want to know more about your digital services.\n\n` +
+        `Name: ${name}\n` +
+        (phone ? `Phone: ${phone}\n` : '') +
+        `Service: ${service}\n` +
+        (message ? `Message: ${message}` : '');
+      window.open('https://wa.me/917563947172?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
